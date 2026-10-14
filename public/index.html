@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWise - Smart Investment Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">💰 PHANTOM</div>
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#invest">Invest</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#learn">Learn</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="btn btn-outline" onclick="openLogin()">Login</button>
+            <button class="btn btn-primary" onclick="openSignup()">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Invest in Your Future</h1>
+            <p>Start investing with as little as $10. Smart portfolios, real returns, zero hassle.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">$2.4B+</span>
+                    <span class="stat-label">Assets Managed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">500K+</span>
+                    <span class="stat-label">Active Investors</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">12.4%</span>
+                    <span class="stat-label">Avg. Annual Return</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-large" onclick="openSignup()">Start Investing Now</button>
+        </div>
+        <div class="hero-chart">
+            <canvas id="heroChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Investment Plans -->
+    <section id="invest" class="plans-section">
+        <h2>Investment Plans</h2>
+        <p class="section-subtitle">Choose a plan that fits your goals</p>
+        
+        <div class="plans-grid" id="plansGrid">
+            <!-- Plans will be loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Live Market Data -->
+    <section class="market-section">
+        <h2>Live Market Overview</h2>
+        <div class="market-grid" id="marketGrid">
+            <!-- Market data will be loaded here -->
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+        <h2>Your Dashboard</h2>
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h3>Total Balance</h3>
+                <div class="balance" id="totalBalance">$0.00</div>
+                <canvas id="balanceChart"></canvas>
+            </div>
+            <div class="dashboard-card">
+                <h3>Active Investments</h3>
+                <div class="investment-list" id="investmentList">
+                    <!-- Investments will be listed here -->
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <h3>Recent Transactions</h3>
+                <div class="transaction-list" id="transactionList">
+                    <!-- Transactions will be listed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section id="learn" class="learn-section">
+        <h2>Learn to Invest</h2>
+        <div class="learn-grid">
+            <div class="learn-card">
+                <h3>📚 Beginner's Guide</h3>
+                <p>Learn the basics of investing in 10 minutes</p>
+                <button class="btn btn-outline">Read More</button>
+            </div>
+            <div class="learn-card">
+                <h3>📊 Market Analysis</h3>
+                <p>Understanding market trends and patterns</p>
+                <button class="btn btn-outline">Read More</button>
+            </div>
+            <div class="learn-card">
+                <h3>💡 Investment Strategies</h3>
+                <p>Proven strategies for long-term growth</p>
+                <button class="btn btn-outline">Read More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">💰 WealthWise</div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+            </div>
+        </div>
+        <p class="disclaimer">© 2024 WealthWise. All rights reserved.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Create Your Account</h2>
+            <form id="signupForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Investment Modal -->
+    <div id="investModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('investModal')">&times;</span>
+            <h2>Make an Investment</h2>
+            <form id="investForm">
+                <input type="number" placeholder="Amount ($)" min="10" required>
+                <select id="planSelect">
+                    <option value="">Select Plan</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Invest Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
